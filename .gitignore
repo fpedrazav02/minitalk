@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Subject
+es.subject.pdf
+
+# Minilibx
+src/mlx/
