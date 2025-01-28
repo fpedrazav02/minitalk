@@ -4,6 +4,6 @@ int main(int argc, char **argv){
 
 	(void)(argc);
 	(void)(argv);
-	printf("Hello world!\n");
+	printf("Hello from client!\n");
 
 }

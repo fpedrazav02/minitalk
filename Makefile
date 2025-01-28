@@ -1,29 +1,78 @@
-NAME = so_long
-SRC = main.c
-OBJ := $(SRC:%.c=%.o)
-ARCHIVES = libmlx.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/28 09:01:45 by fpedraza          #+#    #+#              #
+#    Updated: 2025/01/28 10:48:38 by fpedraza         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+# * Variables
+SRCS_SERVER		=	server.c
+SRCS_CLIENT		=	client.c
+OBJS_DIR		=	obj
+OBJS_SERVER 	=	$(addprefix $(OBJS_DIR)/, $(SRCS_SERVER:.c=.o))
+OBJS_CLIENT 	=	$(addprefix $(OBJS_DIR)/, $(SRCS_CLIENT:.c=.o))
+OBJS 			=	$(OBJS_SERVER) $(OBJS_CLIENT)
+BIN_DIR			=	bin
+BIN_SERVER		=	$(addprefix $(BIN_DIR)/, "server")
+BIN_CLIENT		=	$(addprefix $(BIN_DIR)/, "client")
+BINARIES		= 	$(BIN_SERVER) $(BIN_CLIENT)
 
+CC 				=	cc
+CC_FLAGS 		= 	-Wall -Werror -Wextra
+RM_RF 			= 	rm -rf
+NAME 			=	minitalk
+
+# Libft
+LIBFT_DIR		=	src/libft
+LIBFT 			=	$(LIBFT_DIR)/libft.a
+
+# Colors
+GREEN			= \033[32m
+CYAN			= \033[36m
+WHITE			= \033[0m
+
+# Main rule
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $^ -o $@
-	@echo "\n→ $(NAME) compiled successfully \n"
+$(NAME): $(LIBFT) $(OBJS)
+				@mkdir -p $(BIN_DIR)
+				@echo "Building [$(GREEN)+$(WHITE)] [$(CYAN)minitalk$(WHITE)] [$(GREEN)+$(WHITE)]"
+				@$(CC) $(CC_FLAGS) -o $(BIN_SERVER) $(OBJS_SERVER) $(LIBFT)
+				@$(CC) $(CC_FLAGS) -o $(BIN_CLIENT) $(OBJS_CLIENT) $(LIBFT)
+				@echo "... ✅ Everything compiled successfully ✅ ..."
 
-%.o: %.c
-	@echo "\n... $< ... ✅"
-	@$(CC) $(CFLAGS) -c $< -o $@
+# Build libft
+$(LIBFT):
+				@echo "\nCompiling [$(GREEN)libft$(WHITE)]"
+				@$(MAKE) -C $(LIBFT_DIR) || exit 1
 
-clean:
-	@rm -rf $(OBJ) $(ARCHIVES)
+# [GENERIC] Compile all .c files into .o files
+$(OBJS_DIR)/%.o: %.c
+				@mkdir -p $(OBJS_DIR)
+				@echo "- compiling object $< -> [$(CYAN)$@$(WHITE)]"
+				@$(CC) $(CC_FLAGS) -c $< -o $@
 
+#! Other Rules
+libft_clean:
+				@$(MAKE) -C $(LIBFT_DIR) fclean
 
-fclean: clean
-	@rm -rf $(NAME)
-	@echo "\n→ Make successfully cleaned files 🗑️"
+clean:			libft_clean
+				@$(RM_RF) $(OBJS_DIR)
+				@echo " -> [$(GREEN)+$(WHITE)] [$(CYAN)Minitalk objects$(WHITE)] [$(GREEN)+$(WHITE)] cleaned successfully 🗑️"
 
-re: fclean all
+fclean:			clean
+				@$(RM_RF) $(BINARIES)
+				@$(RM_RF) $(BIN_DIR)
+				@echo " -> [$(GREEN)+$(WHITE)] [$(CYAN)Minitalk binaries$(WHITE)] [$(GREEN)+$(WHITE)] cleaned successfully 🗑️"
 
-.PHONY: all clean fclean re
+re:				fclean $(NAME)
+
+# Compile libft rule
+libft: $(LIBFT)
+
+.PHONY:			all clean fclean re
