@@ -54,5 +54,6 @@ dkms.conf
 # Subject
 es.subject.pdf
 
-# Minilibx
-src/mlx/
+# Binaries
+bin/client
+bin/server

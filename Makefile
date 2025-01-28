@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 09:01:45 by fpedraza          #+#    #+#              #
-#    Updated: 2025/01/28 10:48:38 by fpedraza         ###   ########.fr        #
+#    Updated: 2025/01/28 22:49:55 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,22 @@ LIBFT 			=	$(LIBFT_DIR)/libft.a
 GREEN			= \033[32m
 CYAN			= \033[36m
 WHITE			= \033[0m
+PURPLE			= \033[1;35m
 
 # Main rule
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) MSG $(OBJS)
 				@mkdir -p $(BIN_DIR)
-				@echo "Building [$(GREEN)+$(WHITE)] [$(CYAN)minitalk$(WHITE)] [$(GREEN)+$(WHITE)]"
+				@echo "\nBuilding [$(GREEN)minitalk$(WHITE)]\n"
 				@$(CC) $(CC_FLAGS) -o $(BIN_SERVER) $(OBJS_SERVER) $(LIBFT)
 				@$(CC) $(CC_FLAGS) -o $(BIN_CLIENT) $(OBJS_CLIENT) $(LIBFT)
-				@echo "... ✅ Everything compiled successfully ✅ ..."
+				@echo "Built -> [$(PURPLE)$(BIN_SERVER)$(WHITE)]"
+				@echo "Built -> [$(PURPLE)$(BIN_SERVER)$(WHITE)]"
+				@echo "\n... ✅ Everything compiled successfully ✅ ..."
+
+MSG:
+				@echo "Compiling [$(GREEN)$(NAME)$(WHITE)]"
 
 # Build libft
 $(LIBFT):
@@ -54,7 +60,7 @@ $(LIBFT):
 # [GENERIC] Compile all .c files into .o files
 $(OBJS_DIR)/%.o: %.c
 				@mkdir -p $(OBJS_DIR)
-				@echo "- compiling object $< -> [$(CYAN)$@$(WHITE)]"
+				@echo "Compiling object $< -> [$(CYAN)$@$(WHITE)]"
 				@$(CC) $(CC_FLAGS) -c $< -o $@
 
 #! Other Rules
@@ -75,4 +81,4 @@ re:				fclean $(NAME)
 # Compile libft rule
 libft: $(LIBFT)
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re MSG
