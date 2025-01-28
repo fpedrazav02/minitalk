@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 09:01:45 by fpedraza          #+#    #+#              #
-#    Updated: 2025/01/28 22:49:55 by fpedraza         ###   ########.fr        #
+#    Updated: 2025/01/28 23:11:48 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ LIBFT_DIR		=	src/libft
 LIBFT 			=	$(LIBFT_DIR)/libft.a
 
 # Colors
-GREEN			= \033[32m
+GREEN			= \033[1;32m
 CYAN			= \033[36m
 WHITE			= \033[0m
 PURPLE			= \033[1;35m
@@ -47,10 +47,10 @@ $(NAME): $(LIBFT) MSG $(OBJS)
 				@$(CC) $(CC_FLAGS) -o $(BIN_CLIENT) $(OBJS_CLIENT) $(LIBFT)
 				@echo "Built -> [$(PURPLE)$(BIN_SERVER)$(WHITE)]"
 				@echo "Built -> [$(PURPLE)$(BIN_SERVER)$(WHITE)]"
-				@echo "\n... ✅ Everything compiled successfully ✅ ..."
+				@echo "\n... ✅ Everything compiled successfully ✅ ...\n"
 
 MSG:
-				@echo "Compiling [$(GREEN)$(NAME)$(WHITE)]"
+				@echo "\nCompiling [$(GREEN)$(NAME)$(WHITE)]"
 
 # Build libft
 $(LIBFT):

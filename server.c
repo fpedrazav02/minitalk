@@ -1,4 +1,4 @@
-#include "src/libft/libft.h"
+#include "./inc/minitalk.h"
 
 int	main(void){
 	ft_putnbr_fd(100, 1);

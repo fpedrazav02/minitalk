@@ -57,3 +57,7 @@ es.subject.pdf
 # Binaries
 bin/client
 bin/server
+
+# Object
+obj/*.o
+obj/
