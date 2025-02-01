@@ -6,7 +6,7 @@
 #    By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 09:01:45 by fpedraza          #+#    #+#              #
-#    Updated: 2025/01/28 23:11:48 by fpedraza         ###   ########.fr        #
+#    Updated: 2025/01/31 21:15:51 by fpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,11 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
+#Start server
+start:
+				@./bin/server
+
 # Compile libft rule
 libft: $(LIBFT)
 
-.PHONY:			all clean fclean re MSG
+.PHONY:			all clean fclean re MSG start
