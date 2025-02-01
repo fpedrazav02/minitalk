@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:46:49 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/30 19:02:52 by fpedraza         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:31:39 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 //  int	ft_strlen( const char *str)
 //  {
 // 	int i;
@@ -19,7 +19,7 @@
 // 	while(*str++)
 // 		i++;
 // 	return (i);
-//  } 
+//  }
 char	*ft_strdup(const char *s)
 {
 	int		s_l;

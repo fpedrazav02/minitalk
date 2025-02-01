@@ -6,7 +6,7 @@
 /*   By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 23:04:42 by fpedraza          #+#    #+#             */
-/*   Updated: 2025/01/31 20:49:05 by fpedraza         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:40:29 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # include "../src/libft/libft.h"
 
 // System types
-#include <sys/types.h>
+# include <sys/types.h>
 
 #endif

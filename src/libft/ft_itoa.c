@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static char	*ft_array(char *str, unsigned int number, long int nblength)
 {
@@ -57,7 +57,7 @@ char	*ft_itoa(int n)
 	}
 	else
 		number = n;
-		str = ft_array(str, number, nblength);
+	str = ft_array(str, number, nblength);
 	return (str);
 }
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpedraza <fpedraza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpedraza <fpedraza@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 21:36:47 by fpedraza          #+#    #+#             */
-/*   Updated: 2022/03/27 21:36:47 by fpedraza         ###   ########.fr       */
+/*   Created: 2025/02/01 20:43:20 by fpedraza          #+#    #+#             */
+/*   Updated: 2025/02/01 20:43:20 by fpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static int	ft_check_char(char c, char const *set)
 {
@@ -21,7 +21,7 @@ static int	ft_check_char(char c, char const *set)
 	{
 		if (set[i] == c)
 			return (1);
-	i++;
+		i++;
 	}
 	return (0);
 }
