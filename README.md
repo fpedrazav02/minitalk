@@ -7,9 +7,9 @@
 </p>
 
 <h3 align="center">
-	<a href="#%EF%B8%8F-about">About</a>
+	<a href="#%EF%B8%8F-about-the-project">About</a>
 	<span> · </span>
-	<a href="#%EF%B8%8F-usage">How to use minitalk</a>
+	<a href="#%EF%B8%8F-how-to-use-minitalk">How to use minitalk</a>
 </h3>
 
 ---
@@ -24,7 +24,7 @@ UNIX signals._
 
 ### Requirements
 
-In order to run the minitalk you will need **make**, the  **`cc` compiler** and the standard **C libraries**.
+In order to run minitalk you will need **make**, the  **`cc` compiler** and the standard **C libraries**.
 
 ### Instructions
 
